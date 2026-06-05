@@ -1,0 +1,69 @@
+{
+  "name": "devboiler",
+  "version": "1.0.0",
+  "description": "A developer scaffolding tool for React + Vite projects with modern tooling preconfigured",
+  "main": "dist/index.js",
+  "bin": {
+    "devboiler": "./bin/devboiler.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write src/**/*.ts",
+    "prepublishOnly": "npm run clean && npm run build",
+    "link": "npm link"
+  },
+  "keywords": [
+    "cli",
+    "react",
+    "vite",
+    "scaffolding",
+    "generator",
+    "boilerplate",
+    "typescript",
+    "tailwind",
+    "zustand"
+  ],
+  "author": "DevBoiler Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devboiler/devboiler-cli"
+  },
+  "bugs": {
+    "url": "https://github.com/devboiler/devboiler-cli/issues"
+  },
+  "homepage": "https://github.com/devboiler/devboiler-cli#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "rimraf": "^5.0.5",
+    "@types/node": "^20.11.0",
+    "@types/prompts": "^2.4.9",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ]
+}
