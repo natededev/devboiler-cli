@@ -244,6 +244,18 @@ function hasFeatureFlags(): boolean {
 }
 
 /**
+ * Display a crisp ASCII banner at the top of the create workflow
+ */
+function displayBanner(): void {
+  logger.log('');
+  logger.log(`  ${chalk.bold('╔══════════════════════════════════╗')}`);
+  logger.log(`  ${chalk.bold('║')}          ${chalk.cyan('DEVBOILER')}           ${chalk.bold('║')}`);
+  logger.log(`  ${chalk.bold('║')}  Zero-Bloat Project Scaffolding  ${chalk.bold('║')}`);
+  logger.log(`  ${chalk.bold('╚══════════════════════════════════╝')}`);
+  logger.log('');
+}
+
+/**
  * Create command implementation
  * Orchestrates the entire project generation workflow
  */
@@ -265,6 +277,8 @@ export function createCommand(program: Command): void {
     .description('Scaffold a React + Vite project with optional features')
     .action(async (name?: string, options?: Record<string, unknown>) => {
       try {
+        displayBanner();
+
         let config: ProjectConfig;
 
         // Mode 1: No name provided — prompt for everything (name, package manager, features)
@@ -324,7 +338,7 @@ export function createCommand(program: Command): void {
 
         // Step 2: Clean up base template and configure path aliases
         logger.step(2, 4, 'Configuring project');
-        const featureService = new FeatureService(projectPath, config.packageManager);
+        const featureService = new FeatureService(projectPath, config.packageManager, config.name);
         await featureService.cleanupBaseTemplate();
         await featureService.configurePathAliases();
         logger.success('Configured');
@@ -343,9 +357,9 @@ export function createCommand(program: Command): void {
         if (config.addReactRouter) {
           // If both Zustand and React Router are selected, use composable layout
           if (config.addZustand) {
-            await featureService.addReactRouterWithZustand();
+            await featureService.addReactRouterWithZustand(config);
           } else {
-            await featureService.addReactRouter();
+            await featureService.addReactRouter(config);
           }
         }
 

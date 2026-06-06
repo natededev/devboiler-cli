@@ -31,3 +31,11 @@ coverage/
 # Temp files
 *.tmp
 *.temp
+
+# Generated test projects (devboiler create output)
+test-*/
+test-*/
+*test/
+*test-app/
+*demo/
+*dashboard/
