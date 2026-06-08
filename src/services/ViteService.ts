@@ -75,11 +75,4 @@ export class ViteService {
     });
   }
 
-  /**
-   * Get the project directory name after scaffolding
-   * Vite may create a subdirectory based on the project name
-   */
-  getProjectPath(projectName: string, targetDir?: string): string {
-    return targetDir || projectName;
-  }
 }

@@ -3,7 +3,7 @@ import prompts from 'prompts';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import chalk from 'chalk';
-import { logger } from '../utils/index.js';
+import { logger, createSpinner } from '../utils/index.js';
 import {
   ViteService,
   FeatureService,
@@ -107,7 +107,7 @@ async function promptForConfig(
 function displaySummary(config: ProjectConfig): void {
   logger.header('Project');
   console.log(`  ${chalk.bold(config.name)}`);
-  console.log(`  ${chalk.dim(config.packageManager)}  ·  react-ts`);
+  console.log(`  ${chalk.dim(config.packageManager)}  ·  ${chalk.cyan('React + Vite + TypeScript')}`);
   
   const features = [];
   if (config.addTailwind) features.push('Tailwind');
@@ -250,7 +250,7 @@ function displayBanner(): void {
   logger.log('');
   logger.log(`  ${chalk.bold('╔══════════════════════════════════╗')}`);
   logger.log(`  ${chalk.bold('║')}          ${chalk.cyan('DEVBOILER')}           ${chalk.bold('║')}`);
-  logger.log(`  ${chalk.bold('║')}  Zero-Bloat Project Scaffolding  ${chalk.bold('║')}`);
+  logger.log(`  ${chalk.bold('║')}  React + Vite + TypeScript Stack  ${chalk.bold('║')}`);
   logger.log(`  ${chalk.bold('╚══════════════════════════════════╝')}`);
   logger.log('');
 }
@@ -274,8 +274,12 @@ export function createCommand(program: Command): void {
     .option('--add-zustand', 'add Zustand', false)
     .option('--add-react-router', 'add React Router', false)
     .option('--add-eslint-prettier', 'add ESLint & Prettier', false)
-    .description('Scaffold a React + Vite project with optional features')
+    .description(
+      'Scaffold a React + Vite + TypeScript project with optional features'
+    )
     .action(async (name?: string, options?: Record<string, unknown>) => {
+      let projectPath: string | undefined;
+
       try {
         displayBanner();
 
@@ -321,7 +325,7 @@ export function createCommand(program: Command): void {
         }
 
         // Check if directory already exists
-        const projectPath = path.resolve(config.name);
+        projectPath = path.resolve(config.name);
         if (await fs.pathExists(projectPath)) {
           logger.error(`Directory "${config.name}" already exists`);
           process.exit(1);
@@ -379,11 +383,29 @@ export function createCommand(program: Command): void {
         displaySuccess(config);
 
       } catch (error) {
-        if (error instanceof Error) {
-          logger.error(error.message);
-        } else {
-          logger.error('An unexpected error occurred');
+        // Gracefully stop any active spinner (defensive — covers future spinner usage)
+        const spinner = createSpinner();
+        if (spinner.isActive()) {
+          spinner.fail('Operation interrupted');
         }
+
+        // Atomic rollback: remove the partially created project directory
+        if (projectPath && (await fs.pathExists(projectPath))) {
+          await fs.remove(projectPath);
+        }
+
+        // Professional error output with descriptive messaging
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : 'An unexpected error occurred';
+
+        logger.error('Project creation failed — rolling back changes');
+        logger.error(errorMessage);
+        logger.info(
+          'No files were left behind. Please check your configuration and try again.'
+        );
+
         process.exit(1);
       }
     });

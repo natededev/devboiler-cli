@@ -38,23 +38,6 @@ export const createOptionsSchema = z.object({
 export type CreateOptions = z.infer<typeof createOptionsSchema>;
 
 /**
- * Schema for validating prompt responses
- */
-export const promptResponseSchema = z.object({
-  name: projectNameSchema,
-  packageManager: packageManagerSchema,
-  addTailwind: z.boolean(),
-  addZustand: z.boolean(),
-  addReactRouter: z.boolean(),
-  addEslintPrettier: z.boolean(),
-});
-
-/**
- * Inferred type from the prompt response schema
- */
-export type PromptResponse = z.infer<typeof promptResponseSchema>;
-
-/**
  * Validates a project name and returns the result
  */
 export function validateProjectName(name: string): { valid: boolean; error?: string } {

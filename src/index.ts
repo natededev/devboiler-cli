@@ -2,7 +2,7 @@
 
 import { Command } from 'commander';
 import chalk from 'chalk';
-import { createCommand } from './commands/index.js';
+import { createCommand, doctorCommand } from './commands/index.js';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -41,6 +41,7 @@ For more information, visit: ${chalk.blue.underline('https://github.com/devboile
 
   // Register commands
   createCommand(program);
+  doctorCommand(program);
 
   // Parse arguments
   program.parse(process.argv);

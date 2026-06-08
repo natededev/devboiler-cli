@@ -1,45 +1,35 @@
-# DevBoiler CLI 🚀
+<div align="center">
 
-DevBoiler is a zero-bloat project scaffolding CLI tool for React + Vite + TypeScript. It leverages official upstream toolchains under the hood and layers features programmatically on demand, leaving you with a meticulously clean starting environment.
+<img src="./devboiler.svg" width="120" height="120" alt="devboiler logo" />
 
-## Why DevBoiler?
+# devboiler
 
-Standard boilerplates and frameworks often come with significant styling noise, counter buttons, asset overhead, or complex configurations that you immediately have to delete. 
+### The Hyper-Minimalist, Zero-Bloat Scaffolder for Modern Web Stacks.
 
-DevBoiler solves this by enforcing an **aggressive de-bloating process** the moment a project is initialized, followed by precise, progressive feature enhancements tailored *exactly* to what you need—and nothing you don't.
+[![npm version](https://img.shields.io/npm/v/devboiler.svg?style=flat-square&color=zinc)](https://www.npmjs.com/package/devboiler)
+[![license](https://img.shields.io/github/license/Nathanael-Omebele/devboiler-cli?style=flat-square&color=zinc)](LICENSE)
 
-### Core Philosophy
-- **Upstream-First:** Uses `npx --yes create-vite@latest` natively to ensure your base project always inherits the latest upstream toolchain defaults, performance improvements, and security patches.
-- **Zero-Bloat Baseline:** Instantly purges standard Vite asset boilerplate, clears default styling, and sets up a pristine, minimalist single-element component tree.
-- **Composable Growth:** Features are injected programmatically using service-based file manipulation rather than maintaining multiple static template folders.
+---
+</div>
+
+`devboiler` is an open-source command-line orchestration engine built to spin up production-ready, ultra-clean web workspaces in seconds. No configuration fatigue. No hidden wrappers. No ecosystem bloat.
+
+## ⚡ The Core Philosophy: Zero-Bloat, Maximum Security
+
+In an ecosystem saturated with heavy starters that drag down megabytes of unvetted boilerplate, `devboiler` delivers an immaculate developer experience through a **programmatic injection pipeline**:
+
+* 🔒 **Zero Dependency Footprint:** Built natively using lightweight runtime primitives. Your final scaffolded app contains exactly what you asked for—nothing more.
+* 🛡️ **Atomic Rollback Architecture:** If an installation fails or gets interrupted mid-process, the engine catches it, safely terminates, and recursively sweeps the target directory clean to prevent workspace contamination.
+* 🚀 **Native Tooling Pipelines:** Harnesses the raw power of **Tailwind CSS v4's native Vite compiler plugin**—completely bypassing legacy PostCSS configurations for blazingly fast builds.
 
 ---
 
-## Features
+## 🚀 Quick Start
 
-Select only what your project requires during initialization:
-- **Tailwind CSS:** Fully configured with isolated PostCSS settings and a completely stripped `index.css`.
-- **Zustand:** Drops a cleanly typed, boilerplate-free state manager store (`src/store/counterStore.ts`) ready for consumption.
-- **React Router:** Sets up a lightweight, performance-tuned client-side routing tree with minimal page stubs.
-- **Router + Zustand Composition:** Automatically coordinates multi-page routing states out-of-the-box if both flags are chosen, showing you state persistence across routes cleanly.
-- **Path Aliases:** Pre-configures zero-config absolute path mappings (`@/*` pointing to `src/*`) inside `tsconfig.json` and `vite.config.ts`.
+Launch the interactive setup wizard globally instantly without installation:
 
----
-
-## Installation & Usage
-
-You can use DevBoiler interactively or run it silently with inline flags.
-
-### Interactive Mode
-Simply execute the creator command, and an interactive prompt will guide you through your stack configurations:
 ```bash
 npx devboiler create
-Non-Interactive ModeSkip the prompt pipeline entirely by passing specific flags directly:Bash# Example: Create a lean Tailwind + Zustand stack
-npx devboiler create my-app --add-tailwind --add-zustand
-CLI Command OptionsFlagDescription[name]Name of the project directory-p, --package-managerSpecify preferred package manager (npm, pnpm, yarn)--add-tailwindSeamlessly integrate Tailwind CSS configurations--add-zustandSetup a lightweight global Zustand store--add-react-routerBuild a clean client-side routing navigation structure--add-eslint-prettierInstall and configure synchronized ESLint & Prettier configs--skip-installScaffold files but skip running automatic dependency installationsLocal DevelopmentTo contribute to DevBoiler or test changes locally on your machine:Clone and Install Tooling:Bashgit clone [https://github.com/yourusername/devboiler-cli.git](https://github.com/yourusername/devboiler-cli.git)
-cd devboiler-cli
-npm install
-Build and Link Globally:Bashnpm run build
-npm link
-Scaffold a Test App:Move to any empty directory outside the repository workspace and run your local binary:Bashdevboiler create test-project
-LicenseMIT
+System DiagnosticsVerify your local machine environment is fully compatible and optimized before running a scaffold:Bashnpx devboiler doctor
+🎛️ Feature MatrixSelect your core engineering layers seamlessly via interactive prompts or headless CLI flags:Feature LayerSelected StackExecution BlueprintCore CoreReact + Vite + TypeScriptPruned, blank functional container (Vite defaults purged)StylingTailwind CSS v4Native @tailwindcss/vite compilation engine unshifted into configurationStateZustandBoilerplate-free global stores with cross-route state persistenceRoutingReact RouterClean, high-performance client-side single-page route mappingsLintingESLint + PrettierPre-configured, unified code quality and formatting rule trees🔧 Headless Automation FlagsSkip the prompts entirely and spin up workspaces programmatically using inline flags:Bashdevboiler create my-app --add-tailwind --add-zustand --add-react-router --package-manager npm
+Supported Flags-p, --package-manager <npm\|pnpm\|yarn> — Define explicit target executor--add-tailwind — Injects native Tailwind v4 build engine--add-zustand — Drops typed global store configurations into workspace--add-react-router — Initializes client-side navigation maps--add-eslint-prettier — Appends strict formatting rules--skip-install — Constructs directory architecture without expanding node_modules🏛️ System BlueprintFor an exhaustive analysis of the system specifications, error catching boundaries, and localized lifecycle routines, explore our internal Architecture & Command Manifest.

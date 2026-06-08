@@ -29,21 +29,10 @@ export interface CreateProjectConfig {
 export interface ProjectConfig extends CreateProjectConfig, FeatureFlags {}
 
 /**
- * Result of a service operation
+ * Result of a single doctor diagnostic check
  */
-export interface ServiceResult {
-  success: boolean;
-  error?: string;
-  message?: string;
-}
-
-/**
- * Feature snippet information
- */
-export interface FeatureSnippet {
+export interface DoctorCheckResult {
   name: string;
-  description: string;
-  packages: string[];
-  devPackages: string[];
-  files: Record<string, string>;
+  passed: boolean;
+  message: string;
 }
