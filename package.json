@@ -1,6 +1,6 @@
 {
   "name": "devboiler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A developer scaffolding tool for React + Vite projects with modern tooling preconfigured",
   "main": "dist/index.js",
   "bin": {
