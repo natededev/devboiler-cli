@@ -35,7 +35,7 @@ Example usage:
   ${chalk.cyan('devboiler create my-app -p pnpm')}   Create with pnpm package manager
   ${chalk.cyan('devboiler create my-app --add-tailwind --add-zustand')}  Create with features
 
-For more information, visit: ${chalk.blue.underline('https://github.com/devboiler/devboiler-cli')}
+For more information, visit: ${chalk.blue.underline('https://github.com/natededev/devboiler-cli')}
 `
     );
 
