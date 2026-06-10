@@ -2,44 +2,44 @@
 
 <img src="./devboiler.svg" width="120" height="120" alt="devboiler logo" />
 
-# devboiler
+# DevBoiler
 
-### The Hyper-Minimalist, Zero-Bloat Scaffolder for Modern Web Stacks.
+### The Hyper-Minimalist, Zero-Bloat Scaffolder for Modern Web Stacks
 
 [![npm version](https://img.shields.io/npm/v/devboiler.svg?style=flat-square&color=zinc)](https://www.npmjs.com/package/devboiler)
-[![license](https://img.shields.io/github/license/Nathanael-Omebele/devboiler-cli?style=flat-square&color=zinc)](LICENSE)
+[![license](https://img.shields.io/github/license/natededev/devboiler-cli?style=flat-square&color=zinc)](LICENSE)
 
 ---
 
 </div>
 
-devboiler is an open-source command-line orchestration engine engineered to initialize production-ready, clean web workspaces instantly. It eliminates configuration fatigue, hidden wrappers, and boilerplate accumulation.
+DevBoiler is an open-source command-line orchestration engine engineered to initialize production-ready, clean web workspaces instantly. It eliminates configuration fatigue, hidden wrappers, and boilerplate accumulation.
 
 ---
 
-# Core Architecture and Security Framework
+## 🏗️ Core Architecture and Security Framework
 
-Unlike traditional template generators that pull downstream repository clones containing unvetted configurations, devboiler utilizes a direct, programmatic compilation layer modeled after enterprise pipeline primitives.
+Unlike traditional template generators that pull downstream repository clones containing unvetted configurations, DevBoiler utilizes a direct, programmatic compilation layer modeled after enterprise pipeline primitives.
 
-## Zero Dependency Footprint
+### Zero Dependency Footprint
 
 The CLI operates exclusively on essential runtime primitives. Scaffolded environments contain only the explicitly declared packages requested by the operator.
 
-## Atomic Rollback Architecture
+### Atomic Rollback Architecture
 
 File system executions are transactional. If an installation runtime error or network interruption occurs mid-process, the engine safely halts execution and recursively sweeps the targeted workspace directory to prevent artifact corruption.
 
-## Native Compilation Pipelines
+### Native Compilation Pipelines
 
 Harnesses the native Vite compiler plugin for Tailwind CSS v4, completely bypassing legacy PostCSS abstractions for high-performance builds.
 
-Following the design parameters found within the [Vite Core Repository](https://github.com/vitejs/vite), devboiler acts as a transparent orchestrator over the native build tool, ensuring your configuration remains clean, modular, and directly aligned with upstream specifications.
+Following the design parameters found within the [Vite Core Repository](https://github.com/vitejs/vite), DevBoiler acts as a transparent orchestrator over the native build tool, ensuring your configuration remains clean, modular, and directly aligned with upstream specifications.
 
 ---
 
-# Quick Start
+## 🚀 Quick Start
 
-Initialize the interactive orchestration script globally without local package configuration:
+Launch the interactive setup wizard globally instantly without installation:
 
 ```bash
 npx devboiler create
@@ -47,9 +47,9 @@ npx devboiler create
 
 ---
 
-# System Diagnostics
+## 🔍 System Diagnostics
 
-Execute a system lookup to verify host machine prerequisite compliance before scaffolding:
+Verify your local machine environment is fully compatible and optimized before running a scaffold:
 
 ```bash
 npx devboiler doctor
@@ -57,9 +57,9 @@ npx devboiler doctor
 
 ---
 
-# Feature Matrix
+## 🎛️ Feature Matrix
 
-Select core application architecture components cleanly via interactive menus or headless automation flags.
+Select your core engineering layers seamlessly via interactive prompts or headless CLI flags:
 
 | Feature Layer | Selected Stack | Execution Blueprint |
 |--------------|---------------|---------------------|
@@ -71,9 +71,9 @@ Select core application architecture components cleanly via interactive menus or
 
 ---
 
-# Headless Automation Flags
+## 🔧 Headless Automation Flags
 
-Bypass the interactive menu layer completely to initiate headless environment generation programmatically.
+Skip the prompts entirely and spin up workspaces programmatically using inline flags:
 
 ```bash
 devboiler create my-app \
@@ -85,7 +85,7 @@ devboiler create my-app \
 
 ---
 
-# Supported Execution Flags
+## 📋 Supported Execution Flags
 
 | Flag | Description |
 |--------|-------------|
@@ -98,15 +98,15 @@ devboiler create my-app \
 
 ---
 
-# System Blueprint
+## 🏛️ System Blueprint
 
-For an exhaustive technical breakdown of internal parameters, execution boundaries, and lifecycle routines, consult the internal **Architecture and Command Manifest**.
+For an exhaustive analysis of the system specifications, error catching boundaries, and localized lifecycle routines, explore our internal **Architecture & Command Manifest**.
 
 ---
 
-# Philosophy
+## 💡 Philosophy
 
-devboiler was designed around a simple principle:
+DevBoiler was designed around a simple principle:
 
 > Generate only what developers actually need.
 
@@ -116,8 +116,8 @@ The generated project remains fully transparent, allowing developers to work dir
 
 ---
 
-# License
+## 📄 License
 
-Licensed under the MIT License.
+MIT License.
 
 See the [LICENSE](LICENSE) file for details.
